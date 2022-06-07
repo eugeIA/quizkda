@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Quiz_kda</title>
+</head>
+<body id="body">
+
+    <div class="page" id="accueil">
+
+        <div id="title_accueil">
+            <h1 class="page_1_title">Javascript Quiz</h1>
+            <p class="paragraphe_1">Évaluez vos connaissances en JavaScript en </br>répondant aux questions que nous avons </br> spécialement sélectionnées pour vous.</br>C'est fun et c'est gratuit. </span></p>
+        </div>
+
+
+        <div id="formulaire">
+            <form>
+                <label for="" class="label_nom">Nom</label>
+                
+                <input type="text" id="nom" name="Name" class="saisie" placeholder="Name">
+                <span class="error_name" aria-live="polite"></span>
+                <label for="" class="Email">Email</label>
+                
+                <input type="email" id="mail" name="mAil" class="saisie" placeholder="example@example.com">
+                <span class="error_mail" aria-live="polite"></span>
+                <button  type="onclick" id="start">Commencer</button>
+            </form>
+        </div>
+
+
+        <div id="questionnaire">
+            <h3 class="the_question" id="question_tag"><h3>
+            <div id="time_progress">
+                <h3 id="page_question">Question<span id="page_en_cours"></span>/15</h3>
+                <div id="timer"></div>
+                <div id="progress_bar">
+                    <div id="the_bar"></div>
+                </div>
+            </div>
+                
+            
+            <div id="content_question">
+               
+                <div class="assertions" id="assertion1">
+                    <input type="radio" class="radio" name="reponse" id="a">
+                    <span class="reponses" id="a_text"></span></div>
+                <div class="assertions" id="assertion2">
+                    <input type="radio" class="radio" name="reponse" id="b">
+                    <span class="reponses" id="b_text"></span></div>
+                <div class="assertions" id="assertion3">
+                    <input type="radio" class="radio" name="reponse" id="c">
+                    <span class="reponses" id="c_text"> </span></div>
+                <div class="assertions" id="assertion4">
+                    <input type="radio" class="radio" name="reponse" id="d">
+                    <span class="reponses" id="d_text"></span></div>
+            </div>
+             
+            <button id="quit">Quitter</button>
+            <button id="next">Suivant</button>
+
+        </div>
+        <div  id="result">
+            
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
