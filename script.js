@@ -90,8 +90,6 @@ c:"function:f()",
 d:"aucune bonnereponse"}
 ];
 
-
-
 //variables de la page d'accueil
 const body=document.getElementById("body");
 let page_accueil=document.getElementById("accueil");
@@ -125,20 +123,15 @@ let assertion_b=document.querySelector("#assertion2");
 let assertion_c=document.querySelector("#assertion3");
 let assertion_d=document.querySelector("#assertion4");
 
-
 const a_option=document.getElementById("a_text");
 const b_option=document.getElementById("b_text");
 const c_option=document.getElementById("c_text");
 const d_option=document.getElementById("d_text");
 
-
-
-
 let page_en_cours=document.querySelector("#page_en_cours");
 let time=60;
 let timer_element=document.getElementById("timer");
-
-    
+   
 let question_count=0;
 let question_number=1;
 page_en_cours.innerText=1;
@@ -182,14 +175,10 @@ btn_content.appendChild(bouton_accueil);
 bouton_accueil.classList.add("home");
 bouton_accueil.textContent="Accueil";
  
-
 page_result.style.display="none";
 
-
-
-
 let user_answer=select_answer();
- let mask_mail=/@gmail.com$/;
+let mask_mail=/@gmail.com$/;
 form.addEventListener('submit', function(e){
     e.preventDefault();
     
@@ -214,10 +203,10 @@ form.addEventListener('submit', function(e){
      
         error_name.style.display="none";
         form.style.display="none";
-    title_home.style.display="none";
-    Nom.style.display="none";
-    Mail.style.display="none";
-    bouton_start.style.display="none";
+        title_home.style.display="none";
+        Nom.style.display="none";
+        Mail.style.display="none";
+        bouton_start.style.display="none";
 
     const Name=Nom.value;
     const Email=Mail.value;
@@ -226,16 +215,18 @@ form.addEventListener('submit', function(e){
     localStorage.setItem('email',Email);
    
     questionnaire.style.display="block";
+    bouton_suivant.style.backgroundColor="#d1f9cd";
     gauge_bar(0);
     print_questions(0);
     timer_manager(60);
-    for(i=0;i<4;i++){
-      input_answerEls[i].addEventListener('click',           function(e){bouton_suivant.style.backgroundColor="#028A3D";
-})}
+   
     if(user_answer==questions[0].correct){
         user_score=1;
     }
-                                                                                              
+    for(i=0;i<4;i++){
+      input_answerEls[i].addEventListener('click', function(e){
+           bouton_suivant.style.backgroundColor="#028A3D";       
+      })}                                                                                          
     page_en_cours.innerText=1;
         
     }
@@ -257,9 +248,9 @@ form.addEventListener('submit', function(e){
 
     //evenement sur le bouton suivant
 bouton_suivant.addEventListener('click', function(){
-        
+         
         user_answer=select_answer();
-
+        
         if(user_answer){
             if(user_answer===questions[question_count].correct){
                 user_score++;
@@ -267,6 +258,8 @@ bouton_suivant.addEventListener('click', function(){
             
         }
         if(question_count < (questions.length-1)){
+            bouton_suivant.style.backgroundColor="#d1f9cd";
+            
             deselectAnswers()
             question_count++;
             question_number++;
@@ -275,10 +268,12 @@ bouton_suivant.addEventListener('click', function(){
             gauge_bar(bar_progress);
             print_questions(question_count);
             timer_manager(60);
-          for(i=0;i<4;i++){
-          input_answerEls[i].addEventListener('click',           function(e){bouton_suivant.style.backgroundColor="#028A3D";
-})}
-            page_en_cours.innerText++;  
+            for(i=0;i<4;i++){
+                input_answerEls[i].addEventListener('click', function(e){
+                     bouton_suivant.style.backgroundColor="#028A3D";
+              })}
+            page_en_cours.innerText++;
+            
       }
               else {
             questionnaire.style.display="none";
@@ -298,10 +293,6 @@ bouton_suivant.addEventListener('click', function(){
 
     
       
-
-
-
-
 
 //FONCTIONS UTILISEES
 //fonction d'affichage des questions
@@ -354,7 +345,7 @@ function select_answer() {
     let rep;
     input_answerEls.forEach(input_answerEl => {
         if(input_answerEl.checked) {
-            rep = input_answerEl.id;   
+            rep = input_answerEl.id;
         }
     })
     return rep
@@ -364,3 +355,6 @@ function select_answer() {
 function deselectAnswers(){
     input_answerEls.forEach(input_answerEl => input_answerEl.checked =false )
 }
+
+
+
