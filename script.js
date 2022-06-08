@@ -229,7 +229,9 @@ form.addEventListener('submit', function(e){
     gauge_bar(0);
     print_questions(0);
     timer_manager(60);
-    if(input_a.checked){assertion_a.style.borderColor="green";}
+    for(i=0;i<4;i++){
+      input_answerEls[i].addEventListener('click',           function(e){bouton_suivant.style.backgroundColor="#028A3D";
+})}
     if(user_answer==questions[0].correct){
         user_score=1;
     }
@@ -273,6 +275,9 @@ bouton_suivant.addEventListener('click', function(){
             gauge_bar(bar_progress);
             print_questions(question_count);
             timer_manager(60);
+          for(i=0;i<4;i++){
+          input_answerEls[i].addEventListener('click',           function(e){bouton_suivant.style.backgroundColor="#028A3D";
+})}
             page_en_cours.innerText++;  
       }
               else {
@@ -349,8 +354,7 @@ function select_answer() {
     let rep;
     input_answerEls.forEach(input_answerEl => {
         if(input_answerEl.checked) {
-            rep = input_answerEl.id;
-            
+            rep = input_answerEl.id;   
         }
     })
     return rep
